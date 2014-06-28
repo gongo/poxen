@@ -1,3 +1,5 @@
+$userdir = "/Users/${boxen_user}"
+
 define goget ($package = $title) {
   exec { "go get -u ${package}":
   }
@@ -10,14 +12,17 @@ node default {
     group => 'staff',
     user => $boxen_user,
     path => [
-      "/Users/${boxen_user}/.homebrew/bin",
+      "${userdir}/.homebrew/bin",
       '/usr/local/bin',
       '/usr/bin',
       '/bin',
       '/usr/sbin',
       '/sbin'
     ],
-    environment => ["GOPATH=/Users/${boxen_user}/.go"]
+    environment => [
+      "HOME=${userdir}",
+      "GOPATH=${userdir}/.go"
+    ]
   }
 
   Package {
@@ -39,6 +44,16 @@ node default {
   # Your manifests goes here.
 
   include osx::dock::autohide
+
+  file { '/tmp/Brewfile':
+    ensure    => present,
+    content   => template('Brewfile')
+  }
+
+  exec { 'brew bundle /tmp/Brewfile':
+    logoutput => true,
+    timeout   => 0
+  }
 
   $go_packages = [
     'code.google.com/p/go.tools/cmd/goimports',

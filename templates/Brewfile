@@ -1,0 +1,52 @@
+tap homebrew/dupes
+tap homebrew/binary
+tap peco/peco
+tap caskroom/cask
+
+update
+upgrade
+
+# commands
+install brew-cask
+install curl
+install emacs --cocoa --srgb --japanese
+install ffmpeg
+install figlet
+install gifsicle
+install global
+install gnu-sed
+install gnupg
+install graphviz
+install heroku-toolbelt
+install hub
+install jq
+install mplayer
+install nkf
+install node
+install packer
+install peco
+install phantomjs
+install reattach-to-user-namespace
+install ssh-copy-id
+install the_silver_searcher
+install tmux
+install tree
+install ttyrec
+install wakeonlan
+install wget
+install youtube-dl
+install zsh
+
+# libraries
+install libxml2
+install libxslt
+install readline
+install gettext
+
+cask install appcleaner
+cask install basictex
+cask install boot2docker
+cask install postgres
+
+cleanup
+

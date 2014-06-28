@@ -41,6 +41,7 @@ mkdir -p "$LOG_DIR"
 # Now, we're all set. Apply Puppet.
 sudo -p "Password for sudo to run puppet: " \
   bin/puppet apply \
+  --templatedir templates \
   --group admin \
   --confdir "$PUPPET_DIR/conf" \
   --confdir "$PUPPET_DIR/var" \
