@@ -9,5 +9,5 @@ end
 
 mod "stdlib", "4.1.0", :github_tarball => "puppetlabs/puppetlabs-stdlib"
 
-boxen "repository", "2.2.0"
-boxen "osx", "2.2.0"
+boxen "repository", "2.3.0"
+boxen "osx", "2.7.0"
